@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   namespace :admin do
     get 'customers/index'
     get 'customers/show'
@@ -17,6 +18,12 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top'
   end
+  
+  get 'homes/top'
+  get 'homes/about'
+  root :to =>"homes#top"
+  get "home/about"=>"homes#about"
+  get "search" => "searches#search"
   devise_for :customers,skip:[:password],controllers:{
     registriations:"public/registrations",
     sessions:'public/sessions'
