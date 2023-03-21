@@ -24,7 +24,6 @@ devise_for :customers,skip:[:password],controllers:{
   get "home/about"=>"homes#about"
   get "search" => "searches#search"
 
-
    resources :customers, only: [:show, :edit] do
      get :unsubscribe
      get :withdraw
