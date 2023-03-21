@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-devise_for :customers,skip:[:password],controllers:{
+  devise_for :customers,skip:[:password],controllers: {
     registriations:"public/registrations",
     sessions:'public/sessions'
   }
