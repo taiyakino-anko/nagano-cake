@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'orders/new'
+    get 'orders/confirm'
+    get 'orders/finish'
+    get 'orders/index'
+    get 'orders/show'
+  end
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/unsubscribe'
+    get 'customers/withdraw'
+  end
   namespace :admin do
     get 'customers/index'
     get 'customers/show'
@@ -18,20 +31,19 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes/top'
   end
-  
-  get 'homes/top'
-  get 'homes/about'
+
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
   get "search" => "searches#search"
+  
   devise_for :customers,skip:[:password],controllers:{
     registriations:"public/registrations",
     sessions:'public/sessions'
   }
-  
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
