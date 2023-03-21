@@ -9,7 +9,6 @@ devise_for :customers,skip:[:password],controllers:{
     sessions: "admin/sessions"
   }
 
-
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :edit, :create, :update]
@@ -19,7 +18,6 @@ devise_for :customers,skip:[:password],controllers:{
     get 'homes/top'
   end
 
-
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
   get "search" => "searches#search"
@@ -28,9 +26,10 @@ devise_for :customers,skip:[:password],controllers:{
      get :unsubscribe
      get :withdraw
    end
+
    resources :orders, only: [:new, :confirm, :finish, :index, :show, :create]
-   resources :addresses, only: [:index, :edit]
-   resources :cart_items, only: [:index] do
+   resources :addresses, only: [:index, :edit,:create,:update,:destroy]
+   resources :cart_items, only: [:index,:update,:destroy,:create] do
     collection do
      delete :destroy_all
     end
