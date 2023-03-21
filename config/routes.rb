@@ -9,6 +9,7 @@ devise_for :customers,skip:[:password],controllers:{
     sessions: "admin/sessions"
   }
 
+
   namespace :admin do
     get 'customers/index'
     get 'customers/show'
