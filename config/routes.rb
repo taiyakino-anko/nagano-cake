@@ -22,6 +22,7 @@ devise_for :customers,skip:[:password],controllers:{
   get "home/about"=>"homes#about"
   get "search" => "searches#search"
 
+ scope module: :public do
    resources :customers, only: [:show, :edit, :update] do
      get :unsubscribe
      get :withdraw
@@ -36,4 +37,5 @@ devise_for :customers,skip:[:password],controllers:{
    end
    resources :items, only: [:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  end
  end
