@@ -1,2 +1,10 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="row">
+  <div class="col-xs-2">
+		<%= render 'items/sidebar', genres: @genres %>
+	</div>
+	<div class="col-xs-10">
+	 <p><%= item.name %></p>
+	 <p><%= item.explanation %></p>
+   <p>¥<%= item.price %></p>
+	</div>
+</div>
