@@ -11,4 +11,6 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :genre_id, presence: true
   validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: "半角数字のみが許可されています" }
+  
+  enum selling_status: { sell: 0, sold_out: 1 }
 end
