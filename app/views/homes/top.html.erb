@@ -1,21 +1,29 @@
-<div class='container px-5 px-sm-0'>
+<div class='container px-20 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-      
+      <%= render 'layouts/genre-search' %>
     </div>
-    <div class='col-md-9'>
-      <thead>
-        <p>
+    <div class='col-md-8 offset-md-1'>
+        <h3>
           ようこそ、ながのCAKEへ!<br>
           このサイトは、ケーキ販売のECサイトになります。<br>
           会員でない方も商品の観覧はできますが、<br>
           購入には会員登録は必要になります。
-        </p>
+        </h3>
+      <thead>
+
       </thead>
       <tbody>
-        <h2><strong>新着商品</strong></h2>
+        <tr>
+          <td>
+            <h2><strong>新着商品</strong></h2>
+            <div>商品画像</div>
+            <div>商品名</div>
+            <div>値段</div>
+          </td>
+        </tr>
       </tbody>
-    </div> 
+    </div>
   </div>
 </div>
 
