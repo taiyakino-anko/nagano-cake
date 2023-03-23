@@ -24,8 +24,8 @@ Rails.application.routes.draw do
 
  scope module: :public do
    resources :customers, only: [:show, :edit, :update] do
-     get :unsubscribe
-     get :withdraw
+     get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+     get '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
    end
 
    resources :orders, only: [:new, :confirm, :finish, :index, :show, :create]
