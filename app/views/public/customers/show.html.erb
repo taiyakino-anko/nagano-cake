@@ -4,35 +4,41 @@
       <h2>マイページ</h2>
       <tr>
         <th>登録情報</th>
-        <th><%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-success" %></th>
+        <th><%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-success" %></th>
       </tr>
       <table>
-        <tr>
-          <th>氏名</th>
-          <th>カナ</th>
-          <th>郵便番号</th>
-          <th>住所</th>
-          <th>電話番号</th>
-          <th>メールアドレス</th>
-        </tr>
-        <% @customer.each do |customer| %>
           <tr>
-            <td><%= @customer["name"] %></td>
-            <td><%= @customer["name_kana"] %></td>
-            <td><%= @customer["post_code"] %></td>
-            <td><%= @customer["address"] %></td>
-            <td><%= @customer["telephone_number"] %></td>
-            <td><%= @customer["email"] %></td>
+            <th>氏名</th>
+            <th><%= @customer.last_name %><%= @customer.first_name %></th>
           </tr>
-        <% end %>
+          <tr>
+            <th>カナ</th>
+            <th><%= @customer.last_name_kana %><%= @customer.first_name_kana %></th>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <th><%= @customer.pastal_code %></th>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <th><%= @customer.address %></th>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <th><%= @customer.telephone_number %></th>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <th><%= @customer.email %></th>
+          </tr>
       </table>
       <tr>
         <th>配送先</th>
-        <th><%= link_to "一覧を見る", addresses_path(@customer.id), class: "btn btn-primary" %></th>
+        <th><%= link_to "一覧を見る", addresses_path(@customer), class: "btn btn-primary" %></th>
       </tr>
       <tr>
         <th>注文履歴</th>
-        <th><%= link_to "一覧を見る", orders_path(@customer.id), class: "btn btn-primary" %></th>
+        <th><%= link_to "一覧を見る", orders_path(@customer), class: "btn btn-primary" %></th>
       </tr>
     </div>
   </div>

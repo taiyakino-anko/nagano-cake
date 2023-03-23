@@ -10,18 +10,17 @@
           会員でない方も商品の観覧はできますが、<br>
           購入には会員登録は必要になります。
         </h3>
-      <thead>
-
-      </thead>
       <tbody>
-        <tr>
-          <td>
-            <h2><strong>新着商品</strong></h2>
-            <div>商品画像</div>
-            <div>商品名</div>
-            <div>値段</div>
-          </td>
-        </tr>
+        <h2><strong>新着商品</strong></h2>
+        <%= @items.each do |item| %>
+          <tr>
+            <td>
+              <div></div>
+              <div><%= item.name %></div>
+              <div><%= item.price %></div>
+            </td>
+          </tr>
+        <% end %>  
       </tbody>
     </div>
   </div>
