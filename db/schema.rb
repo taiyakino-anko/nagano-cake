@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_20_130821) do
+ActiveRecord::Schema.define(version: 2023_03_23_132246) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -77,11 +77,11 @@ ActiveRecord::Schema.define(version: 2023_03_20_130821) do
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.string "address", null: false
-    t.string "pastal_code", null: false
     t.string "telephone_number", null: false
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "postal_code"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(version: 2023_03_20_130821) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "post_code", null: false
     t.string "address", null: false
     t.string "name", null: false
     t.integer "delivery_cost", default: 800, null: false
@@ -118,7 +117,8 @@ ActiveRecord::Schema.define(version: 2023_03_20_130821) do
     t.integer "total_payment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "payment_method", default: 0
+    t.integer "payment_method"
+    t.string "postal_code"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
