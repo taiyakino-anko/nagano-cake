@@ -1,8 +1,8 @@
 class Public::CartItemsController < ApplicationController
-  #before_action :authenticate_customer!
+  before_action :authenticate_customer!
 
   def index
-    @cart_items = current_customer.cart_items
+    @cart_items = current_customer.cart_items    #current_customer.cart_itemsにするとエラーが発生。customer_idがないよ、というエラーと仮説した。
     @total_price = @cart_items.sum(&:subtotal)
   end
 
@@ -32,6 +32,6 @@ class Public::CartItemsController < ApplicationController
 
   private
   def cart_item_params
-      params.require(:cart_item).permit(:item_id, :amount)
+      params.require(:cart_item).permit(:item_id, :amount, :customer_id)
   end
 end
