@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 mx-auto">
       <h2 class="text-center mb-4">商品新規登録</h2>
-      <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+      <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
         <div class="form-group">
           <%= f.label :image, "商品画像" %>
           <%= f.file_field :image, accept: "image/*", class: "form-control-file" %>
@@ -20,7 +20,7 @@
 
         <div class="form-group">
           <%= f.label :category, 'ジャンル' %>
-          <%= f.collection_select(:category, @genres, :id, :category) %>
+          <%= f.collection_select :genre_id, @genres, :id, :category,:include_blank => "カテゴリを選択してください" %>
           <!--ジャンルはあとで-->
         </div>
 

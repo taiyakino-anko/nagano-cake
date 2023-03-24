@@ -19,8 +19,8 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :category, 'ジャンル' %>
-          <%= f.collection_select(:category, @genres, :id, :category) %>
+          <%= f.label :genre_id, 'ジャンル' %>
+          <%= f.collection_select :genre_id, @genres, :id, :category,:include_blank => "カテゴリを選択してください" %>
           <!--ジャンルはあとで-->
         </div>
 

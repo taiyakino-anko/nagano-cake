@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 2023_03_24_073539) do
     t.integer "total_payment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "payment_method"
+    t.integer "payment_method", default: 0
     t.string "postal_code"
     t.integer "customer_id", null: false
   end
