@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_23_132246) do
+ActiveRecord::Schema.define(version: 2023_03_24_073539) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2023_03_23_132246) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id", null: false
   end
 
   create_table "admins", force: :cascade do |t|
@@ -64,6 +65,8 @@ ActiveRecord::Schema.define(version: 2023_03_23_132246) do
     t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id", null: false
+    t.integer "item_id", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -99,6 +102,7 @@ ActiveRecord::Schema.define(version: 2023_03_23_132246) do
     t.integer "selling_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id", null: false
   end
 
   create_table "order_details", force: :cascade do |t|
@@ -107,6 +111,8 @@ ActiveRecord::Schema.define(version: 2023_03_23_132246) do
     t.integer "making_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "order_id", null: false
+    t.integer "item_id", null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -119,6 +125,7 @@ ActiveRecord::Schema.define(version: 2023_03_23_132246) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "payment_method"
     t.string "postal_code"
+    t.integer "customer_id", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
