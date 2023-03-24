@@ -20,7 +20,7 @@
 
         <div class="form-group">
           <%= f.label :category, 'ジャンル' %>
-          <%= f.collection_select(:genre_id, :category, @genres, :id, :category) %>
+          <%= f.collection_select(:category, @genres, :id, :category) %>
           <!--ジャンルはあとで-->
         </div>
 
