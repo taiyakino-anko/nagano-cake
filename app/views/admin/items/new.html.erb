@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-4">
   <div class="row">
     <div class="col-md-6 mx-auto">
       <h2 class="text-center mb-4">商品新規登録</h2>
@@ -19,7 +19,8 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :genre_id, "ジャンル" %>
+          <%= f.label :category, 'ジャンル' %>
+          <%= f.collection_select(:category, @genres, :id, :category) %>
           <!--ジャンルはあとで-->
         </div>
 
@@ -35,7 +36,7 @@
 
         <div class="form-group">
           <%= f.label :selling_status, "販売ステータス" %>
-          <%= f.select :selling_status, { "販売中" => 0, "販売中止中" => 1 }, {prompt: "選択してください"}, class: "form-control" %>
+          <%= f.select :selling_status, Item.selling_statuses_i18n.invert, selected: @item.selling_status %>
         </div>
 
         <div class="form-group">
