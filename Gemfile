@@ -59,3 +59,4 @@ gem 'devise'
 gem "enum_help"
 gem 'rails-i18n'
 gem 'kaminari'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
