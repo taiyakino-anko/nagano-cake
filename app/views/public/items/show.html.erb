@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      <%= render 'items/sidebar', genres: @genres %>
+      <%= render 'layouts/genre-search', genres: @genres %>
     </div>
     <div class="col-md-10">
-      <h2><%= item.name %></h2>
-      <p><%= item.explanation %></p>
-      <p>¥<%= item.price %></p>
+      <h2><%= @item.name %></h2>
+      <p><%= @item.explanation %></p>
+      <p>¥<%= @item.price %></p>
       <div>
         <%= form_with model: @cart_item, url: cart_item_path, method: :post do |f| %>
          <%= f.hidden_field :item_id, :value => @item.id %>
