@@ -1,11 +1,13 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-md-12 px-5 px-sm-0">
       <h2>マイページ</h2>
-      <tr>
-        <th>登録情報</th>
-        <th><%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-success" %></th>
-      </tr>
+      <div class='row mt-md-4 pb-md-4 '>
+        <div class='col-md-2'><h4>登録情報</h4></div>
+        <div class='col-md-2'><%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-success" %></div>
+        <div class='col-md-8'></div>
+      </div>
+
       <table class="table table-bordered">
         <tbody>
           <tr>
@@ -34,14 +36,16 @@
           </tr>
         </tbody>
       </table>
-      <tr>
-        <th>配送先</th>
-        <th><%= link_to "一覧を見る", addresses_path(@customer), class: "btn btn-primary" %></th>
-      </tr>
-      <tr>
-        <th>注文履歴</th>
-        <th><%= link_to "一覧を見る", orders_path(@customer), class: "btn btn-primary" %></th>
-      </tr>
+      <div class='row mt-md-5'>
+        <div class='col-md-2'><h4>配送先</h4></div>
+        <div class='col-md-2'><%= link_to "一覧を見る", addresses_path(@customer), class: "btn btn-primary" %></div>
+        <div class='col-md-8'></div>
+      </div>
+      <div class='row my-md-2'>
+        <div class='col-md-2'><h4>注文履歴</h4></div>
+        <div class='col-md-2'><%= link_to "一覧を見る", orders_path(@customer), class: "btn btn-primary" %></div>
+        <div class='col-md-8'></div>
+      </div>
     </div>
   </div>
 </div>
