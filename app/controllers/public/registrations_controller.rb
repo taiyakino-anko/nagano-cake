@@ -37,7 +37,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
+  
+  # 各コントローラに振り分けたら適用
+  # def after_sign_in_path_for(resource)
+  #   customer_path
+  # end
+ 
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

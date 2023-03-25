@@ -2,7 +2,7 @@
   <div class='row'>
     <div class="col-md-12 px-5 px-sm-0">
       <h2>新規会員登録</h2>
-      <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
+      <%= form_with model: @customer, url: customer_registration_path,  class: 'new_customer', local: true do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
 
         <div class="row">
@@ -53,7 +53,7 @@
         <div class="row">
           <div class="col-md-3">郵便番号</div>
           <div class="col-md-4 form-group">
-            <%= f.text_field :pastal_code, autofocus: true, class: "form-control pastal_code" %>
+            <%= f.text_field :postal_code, autofocus: true, class: "form-control pastal_code" %>
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-4 form-group"></div>
