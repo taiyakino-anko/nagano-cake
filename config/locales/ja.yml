@@ -4,3 +4,4 @@
         selling_status:
           sell: "販売中"
           sold_out: "販売中止中"
+          
