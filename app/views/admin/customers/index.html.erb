@@ -6,7 +6,7 @@
   </div>
 
   <div class ="row my-4">
-    <di class ="col-md-12">
+    <div class ="col-md-12">
       <table class ="table">
         <tr>
           <td>会員ID</td>
@@ -22,7 +22,13 @@
               <%= link_to customer.first_name, admin_customer_path(customer.id) %>
             </th>
             <th><%= customer.email %></th>
-            <th><%= customer.is_deleted %></th>
+            <th>
+              <% if customer.is_deleted == false %>
+					        有効
+					    <% else %>
+					        退会
+					    <% end %>
+            </th>
           </tr>
         <% end %>
       </table>
