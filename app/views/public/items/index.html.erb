@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
+    <div class="col-md-3"><%= render 'layouts/genre-search', genres: @genres %></div>
+    <div class="col-md-9">
       <h2 class="mb-3">商品一覧 <span class="badge bg-secondary"><%= @items.count %>件</span></h2>
       <div class="card-deck">
         <% @items.each do |item| %>
@@ -14,7 +14,6 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-2"></div>
   </div>
 </div>
 
