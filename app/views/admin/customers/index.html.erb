@@ -4,23 +4,27 @@
       <h2>会員一覧</h2>
     </div>
   </div>
-  
+
   <div class ="row my-4">
     <di class ="col-md-12">
-      <table>
+      <table class ="table">
         <tr>
           <td>会員ID</td>
-          <td>指名</td>
+          <td>氏名</td>
           <td>メールアドレス</td>
           <td>ステータス</td>
         </tr>
         <% @customers.each do |customer| %>
           <tr>
             <th><%= customer.id %></th>
-            <th></th>
+            <th>
+              <%= link_to customer.last_name, admin_customer_path(customer.id) %>
+              <%= link_to customer.first_name, admin_customer_path(customer.id) %>
+            </th>
             <th><%= customer.email %></th>
-            <th><%= customer. %></th>
+            <th><%= customer.is_deleted %></th>
           </tr>
+        <% end %>
       </table>
     </div>
   </div>
