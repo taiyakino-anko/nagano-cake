@@ -20,7 +20,7 @@
 
         <div class="form-group">
           <%= f.label :genre_id, 'ジャンル' %>
-          <%= f.collection_select :genre_id, @genres, :id, :category,:include_blank => "カテゴリを選択してください" %>
+          <%= f.select :genre_id, options_for_select(@genres.map{ |g| [g.category, g.id] }), { include_blank: 'カテゴリを選択してください' }, class: "form-control" %>
           <!--ジャンルはあとで-->
         </div>
 

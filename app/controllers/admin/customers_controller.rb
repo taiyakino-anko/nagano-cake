@@ -4,11 +4,11 @@ class Admin::CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find
+    @customer = Customer.find(params[:id])
   end
 
   def edit
-    @customer = Customer.find
+    @customer = Customer.find(params[:id])
   end
   
   def update
@@ -19,4 +19,9 @@ class Admin::CustomersController < ApplicationController
       render 'edit'
     end
   end
+  
+    def customer_params
+    params.require(:customer).permit(:email, :first_name, :last_name, :first_name, :last_name_kana, :first_name_kana, :address, :telephone_number, :is_deleted, :postal_code)
+    end
+  
 end
