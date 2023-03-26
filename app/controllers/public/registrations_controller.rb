@@ -38,10 +38,10 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
   
-  # 各コントローラに振り分けたら適用
-  # def after_sign_in_path_for(resource)
-  #   customer_path
-  # end
+  
+  def after_sign_in_path_for(resource)
+    customer_path
+  end
  
   # protected
 
