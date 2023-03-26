@@ -11,7 +11,7 @@ class Order < ApplicationRecord
     e: 4
   }
   enum payment_method: {
-    a: 0,
-    b: 1
+    f: 0,
+    g: 1
   }
 end
