@@ -18,6 +18,9 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
+  def after_sign_out_path_for(resource)
+    root_path
+  end
    protected
 
   def reject_customer
