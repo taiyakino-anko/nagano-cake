@@ -23,10 +23,11 @@ Rails.application.routes.draw do
   get "search" => "searches#search"
 
  scope module: :public do
-   resources :customers, only: [:show, :edit, :update] do
+     get '/customers/my_page' => 'customers#show', as: 'customer'
+     get 'customers/information/edit' => 'customers#edit', as: 'edit_customer'
+     patch 'customers/information' => 'customers#update', as: 'update_customer'
      get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
-     get '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
-   end
+     patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
 
    resources :orders, only: [:new, :confirm, :finish, :index, :show, :create]
    resources :addresses, only: [:index, :edit,:create,:update,:destroy]
