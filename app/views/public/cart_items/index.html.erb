@@ -31,7 +31,7 @@
             <% end %>
           </td>
           <td><%= cart_item.subtotal %></td>
-          <td><%= link_to "削除する", cart_items_path(cart_item), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"} %></td>
+          <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"} %></td>
         </tr>
       <% end %>
        </tbody>
@@ -41,6 +41,9 @@
       <div class="col-md-9"></div>
       <div class="col-md-3 font-weight-bold text-right">合計金額: <%= @total_price %></div>
      </div>
+     <div class = "col-md-5">
+       <%= link_to "情報入力に進む", order_orders_confirm_path, class: "col-xs-12 btn btn-successr"%>
+    </div>
     </div>
    </div>
  </div>
