@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
 
   has_many :items, through: :order_details
+  has_many :order_details
   belongs_to :customer
 
   enum order_status: {
