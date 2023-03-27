@@ -1,4 +1,5 @@
 <div class="container my-4">
+  <%= flash[:danger] %>
   <div class="row">
     <div class="col-md-6 mx-auto">
       <h2 class="text-center mb-4">商品新規登録</h2>
@@ -20,7 +21,7 @@
 
         <div class="form-group">
           <%= f.label :genre_id, 'ジャンル' %>
-          <%= f.select :genre_id, options_for_select(@genres.map{ |g| [g.category, g.id] }), { include_blank: 'カテゴリを選択してください' }, class: "form-control" %>
+          <%= f.collection_select :genre_id, @genres, :id, :category %>
           <!--ジャンルはあとで-->
         </div>
 
