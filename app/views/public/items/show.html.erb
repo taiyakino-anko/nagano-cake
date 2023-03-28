@@ -11,13 +11,13 @@
       <p><%= @item.explanation %></p>
       <p>¥<%= @item.price %></p>
       <div><%= @item.selling_status_i18n %></div>
-      <div>
-        <%= form_with model: @cart_item, url: cart_items_path(item_id: @item), method: :post do |f| %>
-         <%= f.hidden_field :item_id, :value => @item.id %>
-         <%= f.select :amount, *[1..9], class: "form-select mb-3"  %>
-         <%= f.submit 'カートに入れる' ,class: "btn btn-success"%>
+        <% if customer_signed_in? %>
+             <%= form_with model: @cart_item, url: cart_items_path(item_id: @item), method: :post do |f| %>
+               <%= f.hidden_field :item_id, :value => @item.id %>
+               <%= f.select :amount, *[1..9], class: "form-select mb-3"  %>
+               <%= f.submit 'カートに入れる' ,class: "btn btn-success"%>
+             <% end %>
         <% end %>
-      </div>
     </div>
   </div>
 </div>

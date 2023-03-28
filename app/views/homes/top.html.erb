@@ -28,7 +28,9 @@
         <% @items.take(3).each do |item| %>
         <div class="col-md-4 mb-4">
           <div class="card">
-            <%= image_tag item.image, class: "card-img-top", alt: item.name %>
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.image, fallback: 'no_image.jpg',size: "190x150" ,class: "card-img-top" %>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= item.name %></h5>
               <p class="card-text"><%= item.price %></p>
