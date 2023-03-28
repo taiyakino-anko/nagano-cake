@@ -35,16 +35,16 @@ class Public::OrdersController < ApplicationController
     @order.save
 
     current_customer.cart_items.each do |cart_item| #カート内商品を1つずつ取り出しループ
-      @ordered_item = OrderedItem.new #初期化宣言
+      @ordered_item = OrderDetail.new #初期化宣言
       @ordered_item.order_id = @order.id #order注文idを紐付けておく
       @ordered_item.item_id = cart_item.item_id #カート内商品idを注文商品idに代入
       @ordered_item.amount = cart_item.amount #カート内商品の個数を注文商品の個数に代入
-      @ordered_item.tax_included_price = (cart_item.item.price*1.10).floor #消費税込みに計算して代入
+      @ordered_item.price = (cart_item.item.price*1.10).floor #消費税込みに計算して代入
       @ordered_item.save #注文商品を保存
     end  #ループ終わり
 
-    current_customer.cart_items.destroy.all #カートの中身を削除
-    redirect_to order_orders_finish_path
+    current_customer.cart_items.destroy_all #カートの中身を削除
+    redirect_to orders_finish_path
   end
 
   def finish
@@ -56,7 +56,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @ordered_items = @order.ordered_items
+    @ordered_items = @order.order_details
   end
 
 
