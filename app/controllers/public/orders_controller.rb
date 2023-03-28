@@ -44,7 +44,7 @@ class Public::OrdersController < ApplicationController
       @ordered_item.save #注文商品を保存
     end  #ループ終わり
 
-    current_customer.cart_items.destroy.all #カートの中身を削除
+    current_customer.cart_items.destroy_all #カートの中身を削除
     redirect_to order_orders_finish_path
   end
 

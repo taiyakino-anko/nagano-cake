@@ -12,9 +12,12 @@
   <body>
     <% if customer_signed_in? %>
       <%= render 'layouts/header' %>
-    <% else admin_signed_in? %>
+    <% elsif admin_signed_in? %>
       <%= render 'layouts/header_admin' %>
+    <% else %>
+      <%= render 'layouts/header' %>
     <% end %>
+
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>

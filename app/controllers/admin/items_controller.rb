@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def index
     @items = Item.all.page params[:page]
   end
@@ -17,8 +17,8 @@ class Admin::ItemsController < ApplicationController
       redirect_to admin_item_path(@item.id)
       flash[:success] = "商品を登録しました"
     else
-      render 'new'
       flash[:danger] = "必要情報を入力してください"
+      redirect_to  new_admin_item_path
     end
   end
 
