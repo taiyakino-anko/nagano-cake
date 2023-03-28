@@ -3,7 +3,7 @@
     <div class="col-md-10 offset-md-2">
       <h2>注文情報入力</h2>
       <div class='row'>
-        <%= form_with model: @order, url: order_orders_confirm_path(current_customer), method: :post, local: true do |f| %>
+        <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
           <h4>支払方法</h4>
           <p>
             <%= f.radio_button :payment_method,:f,checked: "checked" %>
