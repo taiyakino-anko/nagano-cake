@@ -1,9 +1,14 @@
 class Public::ItemsController < ApplicationController
   before_action :authenticate_customer!
+  
   def index
     @items = Item.page(params[:page])
     @genres = Genre.all
-    @genre = Genre.find(params[:id])
+
+    if params[:genre_id]
+     @genre = Genre.find(params[:genre_id])
+     @items = @genre.items.all
+    end
   end
 
   def show
