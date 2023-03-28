@@ -2,5 +2,5 @@ ja:
     enums:
       order:
         payment_method:
-          f: "クレジットカード"
-          g: "銀行振込"
+          credit: "クレジットカード"
+          bank: "銀行振込"
