@@ -47,7 +47,7 @@ class Public::OrdersController < ApplicationController
     current_customer.cart_items.destroy_all #カートの中身を削除
     redirect_to order_orders_finish_path
     end
-   end
+   
 
   def finish
   end
