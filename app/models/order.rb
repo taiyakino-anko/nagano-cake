@@ -9,4 +9,6 @@ class Order < ApplicationRecord
 
   enum payment_method: { f: 0, g: 1 }
 
+
+
 end

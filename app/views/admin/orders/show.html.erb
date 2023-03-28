@@ -8,7 +8,7 @@
           <p>購入者</p>
         </div>
         <div class="col-md-4 form-group">
-          <%= link_to @order.customer.last_name + @order.customer.first_name, admin_customer_path(@order.customer.id) %>
+          <%= link_to @order.customer.first_name + @order.customer.last_name, admin_customer_path(@order.customer.id) %>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-4 form-group"></div>
@@ -30,7 +30,7 @@
           <p>配送先</p>
         </div>
         <div class="col-md-4 form-group">
-          ⍑<%= @order.pastal_code %> <%= @order.address %> </br>
+          ⍑<%= @order.postal_code %> <%= @order.address %> </br>
           <%= @order.name %>
         </div>
         <div class="col-md-1"></div>
@@ -75,12 +75,12 @@
             <tbody>
               <% @order_details.each do |order_details| %>
                 <tr>
-                  <td><%= order_details.order.name %></td>
-                  <td><%= order_details.price * 1.1 %></td>
+                  <td><%= order_details.item.name %></td>
+                  <td><%= order_details.price * 1.10.to_i %></td>
                   <td><%= order_details.amount %></td>
                   <td><%= order_details.price * order_details.amount %></td>
-                  <%= form_with model: order_details, admin_order_detail_path, local: true do |f| %>
-                    <td><%= f.select :making_status, OrderDetails.making_statuses_i18n.invert, selected: @order_details.making_status %></td>
+                  <%= form_with model: order_details, url: admin_order_detail_path(order_details), local: true do |f| %>
+                    <td><%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, selected: order_details.making_status %></td>
                     <td><%= f.submit "更新", class:"btn btn-primary" %></td>
                   <% end %>
                 </tr>
@@ -93,11 +93,11 @@
           <table class ="table table-borderless">
             <tr>
               <th>商品合計</th>
-              <th><% @order.total_payment %></th>
+              <th><%= @order.total_payment %></th>
             </tr>
             <tr>
               <th>送料</th>
-              <th><% @order.delivery_cost %></th>
+              <th><%= @order.delivery_cost %></th>
             </tr>
             <tr>
               <th>請求金額合計</th>

@@ -14,6 +14,7 @@ class Item < ApplicationRecord
 
   enum selling_status: { sell: 0, sold_out: 1 }
 
+
   def with_tax_price
     (price * 1.1).floor
   end

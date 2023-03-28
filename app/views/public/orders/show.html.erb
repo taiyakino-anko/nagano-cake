@@ -1,10 +1,16 @@
-<div class='container'>
-  <h2>注文履歴詳細</h2>
-  <div class='row'>
-    <div class='co-md-12'>
-      <div class='row'>
-        <div class='col-md-7'>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>注文履歴詳細</h2>
+    </div>
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-header">
+
           <h4>注文情報</h4>
+        </div>
+        <div class="card-body">
           <table class="table table-bordered">
             <tbody>
               <tr>
@@ -17,7 +23,7 @@
               </tr>
               <tr>
                 <th scope="row">支払方法</th>
-                <td><%= @order.payment_method %></td>
+                <td><%= @order.payment_method_i18n %></td>
               </tr>
               <tr>
                 <th scope="row">ステータス</th>
@@ -26,8 +32,14 @@
             </tbody>
           </table>
         </div>
-        <div class='col-md-5'>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header">
           <h4>請求情報</h4>
+        </div>
+        <div class="card-body">
           <table class="table table-bordered">
             <tbody>
               <tr>
@@ -47,11 +59,13 @@
         </div>
       </div>
     </div>
-    <div class='col-md-12'>
-      <div class='row'>
-        <h4>注文内容</h4>
-        <div class='col-md-9'>
-          <table class='table table-bordered'>
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>注文内容</h4>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered">
             <thead>
               <tr>
                 <th scope="row">商品</th>
@@ -76,8 +90,4 @@
             </tbody>
           </table>
         </div>
-        <div class='col-md-3'></div>
       </div>
-    </div>
-  </div>
-</div>
