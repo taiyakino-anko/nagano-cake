@@ -18,7 +18,7 @@
               <% @cart_items.each do |cart_item| %>
                 <tr>
                   <td>
-                    <%= attacment_image_tag(cart_item_item, :image, size: "60x50") %>
+                    <%= image_tag cart_item.item.image, size: "60x50" %>
                     <%= cart_item.item.name %>
                   </td>
                   <td><%= (cart_item.item.price*1.10).to_i %></td>
@@ -37,7 +37,7 @@
           <table class='table'>
             <tr>
               <th>送料</th>
-              <td><%= @order.delivery_cost %></td>
+              <td><%= 800 %></td>
             </tr>
             <tr>
               <th>商品合計</th>
@@ -45,7 +45,7 @@
             </tr>
             <tr>
               <th>請求金額</th>
-              <td><%= @order.total_payment + @order.delivery_cost %></td>
+              <td><%= total.to_i + 800 %></td>
             </tr>
           </table>
         </div>
@@ -53,7 +53,7 @@
       <div class='row'>
         <div class='col-md-11 offset-md-1'>
           <table class="table table-borderless">
-            <tr><th class="col-md-1">支払方法</th><td class="col-md-10"><%= @order.payment_method %></td></tr>
+            <tr><th class="col-md-1">支払方法</th><td class="col-md-10"><%= @order.payment_method_i18n %></td></tr>
             <tr>
               <th class="col-md-1">お届け先</th>
               <td class="col-md-10">
@@ -75,7 +75,7 @@
           <%= f.hidden_field :address %>
           <%= f.hidden_field :postal_code %>
           <%= f.hidden_field :status %>
-         <%= f.submit "注文を確定する" ,class= "btn btn-success" %>
+         <%= f.submit "注文を確定する" ,class: "btn btn-success" %>
         <% end %>
       </div>
     </div>

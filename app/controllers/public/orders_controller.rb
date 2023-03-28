@@ -27,7 +27,7 @@ class Public::OrdersController < ApplicationController
     else
       render 'new'
     end
-    @cart_items = current_customer.cart_ites.all
+    @cart_items = current_customer.cart_items
     @order.customer_id = current_customer.id
   end
 
