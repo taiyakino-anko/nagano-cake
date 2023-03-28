@@ -53,12 +53,14 @@
           <p>注文ステータス</p>
         </div>
         <div class="col-md-4 form-group">
-          <!--注文ステータスはあと-->
+          <%= form_with model: @order, url: admin_order_path(@order), local: true do |f| %>
+            <%= f.select :order_status, Order.order_statuses_i18n.invert, selected: @order.order_status %>
+            <%= f.submit "更新", class: "btn btn-primary" %>
+          <% end %>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-4 form-group"></div>
       </div>
-
       <div class ="row my-4">
         <div class ="col-md-8">
           <table class="table">
