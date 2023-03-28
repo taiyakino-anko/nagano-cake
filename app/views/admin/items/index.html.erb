@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="my-4">商品一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= link_to item.name, admin_item_path(item.id) %></td>
+            <td><%= item.price %></td>
+            <td><%= item.genre.category %></td>
+            <td><%= item.selling_status_i18n %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class ="row justify-content-center">
+    <%= paginate @items, theme: 'bootstrap-5' %>
+  </div>
+  <div class ="row">
+    <div class ="col-md-5">
+      <%= link_to "商品登録画面", new_admin_item_path, class: "btn btn-primary btn-block" %>
+    </div>
+  </div>
+</div>

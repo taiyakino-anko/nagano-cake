@@ -1,0 +1,56 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-10 offset-md-2">
+      <h2>注文情報入力</h2>
+      <div class='row'>
+        <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
+          <h4>支払方法</h4>
+          <p>
+            <%= f.radio_button :payment_method,:f,checked: "checked" %>
+            <%= f.label :payment_method, "クレジットカード" %>
+           <br>
+            <%= f.radio_button :payment_method,:g %>
+            <%= f.label :payment_method, "銀行振込" %>
+          </p>
+          <h4>お届け先</h4>
+          <%= f.radio_button :address_option, 0, checked: "checked" %>
+            <%= f.label :order_address, "ご自身の住所" %>
+          <br>
+            <%= current_customer.postal_code %>
+            <%= current_customer.address %><br>
+            <%= current_customer.first_name %><%= current_customer.last_name %>
+          <br>
+          <%= f.radio_button :address_option, 1 %>
+            <%= f.label :order_address, "登録済住所から選択" %><br>
+            <%= f.collection_select :customer_id, @addresses, :id, :address %>
+            <br>
+            <%= f.radio_button :address_option, 2 %>
+              <%= f.label :order_address, "新しいお届け先" %>
+              <div class='row'>
+                <div class="col-md-6">郵便番号(ハイフンなし)</div>
+                <div class="col-md-4">
+                  <%= f.text_field :postal_code, class: "form-control"  %>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+              <div class="row pt-md-3">
+                <div class="col-md-2">住所</div>
+                <div class="col-md-4"></div>
+                <div class="col-md-6 form-group">
+                  <%= f.text_field :address, class: "form-control address" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">宛名</div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4 form-group">
+                  <%= f.text_field :name, class: "form-control name" %>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+              <%= f.submit "確認画面へ進む",class: 'btn btn-block btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

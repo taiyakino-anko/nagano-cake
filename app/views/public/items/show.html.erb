@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/genre-search', genres: @genres %>
+    </div>
+    <div class="col-md-5">
+      <div class="mb-3"><%= image_tag @item.image, fallback: 'no_image.jpg', class: "img-fluid" %></div>
+    </div>
+    <div class="col-md-4">
+      <h2><%= @item.name %></h2>
+      <p><%= @item.explanation %></p>
+      <p>¥<%= @item.price %></p>
+      <div><%= @item.selling_status_i18n %></div>
+        <% if customer_signed_in? %>
+             <%= form_with model: @cart_item, url: cart_items_path(item_id: @item), method: :post do |f| %>
+               <%= f.hidden_field :item_id, :value => @item.id %>
+               <%= f.select :amount, *[1..9], class: "form-select mb-3"  %>
+               <%= f.submit 'カートに入れる' ,class: "btn btn-success"%>
+             <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>

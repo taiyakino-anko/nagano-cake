@@ -1,0 +1,50 @@
+
+<div class="container px-4 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/genre-search', genres: @genres %>
+    </div>
+    <div class="col-md-9">
+      <div class="m-4">
+        <h4>ようこそ、ながのCAKEへ!</h4>
+        <p>このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の観覧はできますが、<br>
+          購入には会員登録は必要になります。</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <h2 class="my-4"><strong>新着商品</strong></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <% @items.take(3).each do |item| %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.image, fallback: 'no_image.jpg',size: "190x150" ,class: "card-img-top" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= item.name %></h5>
+              <p class="card-text"><%= item.price %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class ="row">
+    <div class ="col-md-9"></div>
+    <div class ="col-md-3">
+      <%= link_to "すべての商品を見る>>", items_path %>
+    </div>
+  </div>
+</div>

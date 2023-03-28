@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'layouts/genre-search', genres: @genres %>
+    </div>
+    <div class="col-md-9">
+      <h2 class="mb-3">商品一覧 <span class="badge bg-secondary"><%= @items.count %>件</span></h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @items.each do |item| %>
+        <div class="col">
+          <div class="card h-100">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.image, fallback: 'no_image.jpg',size: "190x150" ,class: "card-img-top" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= item.name %></h5>
+              <p class="card-text">¥<%= item.price %></p>
+            </div>
+          </div>
+        </div>
+         <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
